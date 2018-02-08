@@ -1,0 +1,47 @@
+#funciones basicas de R
+
+#directorio
+setwd("C:/Users/SALA-D.RTIC-D-PC/Documents/series")
+getwd()
+#calculadora
+3+4
+3^4#uso calculadora
+sqrt(10)#raiz cuadrada 
+exp(10)#exp(x)=e^x
+log(10,10)#log base e
+log(10,base=10)
+x<-10#asignar
+x+3
+#vector:operador c,concatena elementos o vectores
+salarios<-c(40000,50000,55000)
+#combinando vectores
+salarios3<-c(40000,50000,55000)
+salarios4<-c(10000,15000,20000)
+salarios5<-c(salarios3,salarios4)
+#vectores distinto tipo de datos
+alumnos<-c("elisa","bonifacio","edgar")
+alumnos.salarios<-c("elisa","bonifacio","edgar",40000,50000,55000)
+View(alumnos.salarios)
+#funciones y vetores
+sum(salarios3)#suma
+length(salarios3)
+sum(salarios3)/length(salarios3)
+#varianza
+x=c(20,22,24,26,28)
+mediax=mean(x)
+((x-mediax)^2)#suma de las diferencias al cuadrado
+n=length(x)
+sum((x-mediax)^2)/(n-1)
+var(x)
+mean(x)
+sd(x)
+#instalar paquetes
+install.packages("Giza")
+#apertura de librerias
+library(Giza)
+install.packages("RODBC")
+library("RODBC")
+
+
+
+
