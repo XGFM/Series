@@ -40,7 +40,18 @@ install.packages("Giza")
 #apertura de librerias
 library(Giza)
 install.packages("RODBC")
-library("RODBC")
+library(RODBC)
+??Giza#para preguntar que es Giza(ayuda)
+install.packages(c("RODBC","Giza"))#instalar varios paquetes
+#leer datos
+#formato csv
+install.packages("readr")
+library(readr)
+datos_csv<-read_csv("D://clases//time-series//topics//data//clase1.cvs")#mandar 
+#a llamar un archivo
+
+
+
 
 
 
