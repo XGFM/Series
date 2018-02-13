@@ -1,0 +1,83 @@
+##bibliografia 
+#bowerman,B.L,& O´conell,R.T(2007)Pronosticos
+#,series de tiempo y regresion.México:Cengage Learning
+#Brockwell.P.J,Davis,T.A(2016)introduction to time Series and
+#Forecasting.New york: Springer
+#Guerrero,V.(2009).Analisis estadistico de series de tiempo economicas.
+#Méxocp:internacional Thomson Editores
+#Harvey,A.C.(199).The Econometric Analysis of time Series.New York:
+#Handbooks in Economics
+install.packages("RODBC")
+library(RODBC)
+#lectura de datos:12-02-2018
+#instalacion
+
+#la forma mas facil de leer es instalar todo el tidyverse
+install.packages("tidyverse")
+
+#alternativa,instale solo "readr# que forma parte de "tidyverse"
+#readr es una funcion que forma parte de tidyverse
+install.packages("readr")
+library(readr)
+#read_csv():archivos delimitados por comas
+#read_tsv():archivos delimitados por tabulado
+#read_delim():archivos delimitados generales
+#read_fwf():archivos de ancho fijo
+#read_table():archivos tabulares donde las columnas estan separadas por espacios
+#read_log():rarchivos de registro web
+mtcars<- read_csv(readr_example("mtcars.cvs"))
+#formato CVS
+library(readr)
+datoscsv<-read_csv("C:/Users/SALA-D.RTIC-D-PC/Desktop/clase1.csv")
+
+#formato excel
+library(readxl)
+datosexcel<- read_excel("C:/Users/SALA-D.RTIC-D-PC/Desktop/ventas.xml")
+#Formato spss
+library(haven)
+datos_spss<-read_sav("C:/Users/SALA-D.RTIC-D-PC/Desktop/ejemplo.sav")
+
+#formato stata
+library(haven)
+datos_stata<-read stata("C:/Users/SALA-D.RTIC-D-PC/Desktop/clase.dta")
+#formato sas
+library(haven)
+datos_sas<-read_sas("C:/Users/SALA-D.RTIC-D-PC/Desktop/arima_est2.sas7bdat")
+#datos de sitio we
+data2<-read.table("http..")
+head(data2)
+
+#####
+#almacenado datos
+write_csv(datos_csv,"enrutado")
+"Datos en forma binario"
+install.packages("feather")
+library(feather)
+write_feather(datos_csv,"G://clases//......")
+
+###Marco de datos(Data Frame)
+#un data frame "imita un conkinto de datos que tienen la estructura de una matriz
+#pero se trata de una lista cuyos elementos son vectores o factores(columna)
+observacion<-c(1,2,3,4,5,6,7,8,9,10)
+nombre<-c("andres","paola","erika","ariadna","rafael","miguel","mariela","karen","fany","nadia")
+edad<-c(28,17,18,22,30,27,22,24,23,21)
+ingreso<-c(2000,4000,3000,9000,5000,4000,1000,7000,5000,8000)
+alumnos<-data.frame(indentificador=observacion,persona=nombre,Edad=edad,Ingreso=ingreso)
+view(alumnos)#para ver la matriz
+#Acceder a los datos de una data frame
+#leyendo los datos como una maytriz
+alumnos[,1]
+alumnos[1,]
+alumnos[1,1]
+alumnos[4,]
+alumnos[,"Ingreso"]
+alumnos$Ingreso
+alumnos[1:3,]
+alumnos[,c(1,2)]
+alumnos[alumnos$Edad>=30,]
+#creamos otro data frame
+  edocivil<-c("viudo","soltero","soltero","soltero","soltero","soltero","soltero","soltero","soltero","soltero")
+alumnos2<-data.frame(Identificador=observacion,Estado=edocivil)
+#podemos combinar "merge"los data frmaes
+#merge combinacion
+merge(alumnos,alumnos2, by="Identificador")
