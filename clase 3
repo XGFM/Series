@@ -1,0 +1,61 @@
+
+##Algunos graficos sencillos
+#el pronostico es un valor fijo
+plot()
+hist()
+boxplot()
+barplot()
+
+set.seed(12345)#poner aleatorios
+variable_y<-rnorm(30)#distribucuion normal con 30 observaciones
+plot(variable_y)
+windows()##abre una ventana paralela para mayor pixelaje
+x11()##abre una ventana paralela para mayor pixelaje
+xv<-seq(-3,3,0.01)
+yv<-dnorm(xv)
+plot(xv,yv,type="l",col=100,main="Distribucion normal",
+                 ylab="Eje y",xlab="Eje x")
+#types<-c("p","l","b","c","o","h","s","S","n")
+
+attach(mtcars)
+par(mfrow=c(3,1))#graficar mas de una grafica en una sola ventana
+hist(wt)
+hist(mpg)
+hist(disp)
+
+attach(mtcars)
+layout(matrix(c(1,1,2,3),2,2,byrow=TRUE))#graficar mas de una grafica en una sola ventana
+hist(wt)
+hist(mpg)
+hist(disp)
+
+library(readxl)
+petroleo<-read_excel("C:/Users/Xochiquetzal/Desktop/petroleo.xlsx")
+petroleo.ts<-ts(petroleo)
+#t.s timeseries
+plot(petroleo.ts,xlab="Tiempo",ylab="Precio del barril",
+     main="Precio del barril de petroleo",col=100)
+
+
+
+ventas <- read_excel("C:/Users/Xochiquetzal/Desktop/ventas.xlsx")
+ventas.ts <- ts(ventas) # se transforma o convierte en una serie de tiempo un vector de serie de tiempo
+plot(ventas.ts, xlab = "periodo",ylab = "cantidad", main = "ventas",col=15)
+
+library(readr)
+clase1<-read_csv("C:/Users/Xochiquetzal/Desktop/clase1.csv")
+clase1.ts<-ts(clase1)
+x11()
+plot(clase1.ts, xlab = "periodo",main="Trabajadores inscritos en un plan de ahorro",col="red")
+library(haven)
+clase<-read_stata("C:/Users/Xochiquetzal/Desktop/clase.dta")
+clase.ts<-ts(clase)
+plot(clase.ts, xlab = "periodo", main = "Niños inscritos en 5°año de primaria",col=80)
+
+ejemplo<-read_sav("C:/Users/Xochiquetzal/Desktop/ejemplo.sav")
+ejemplo.ts<-ts(ejemplo)
+plot(ejemplo.ts, xlab = "period",ylab = "rendimiento escolar", main = "alumnos",col=13)
+
+arima<-read_sas("C:/Users/Xochiquetzal/Desktop/arima_est2.sas7bdat")
+sas.ts<-ts(arima)
+plot(sas.ts, xlab = "periodo",ylab = "precio", main = "precio de cobre",col=11)
